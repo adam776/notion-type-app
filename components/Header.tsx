@@ -1,6 +1,7 @@
 'use client'
 
-import { useUser } from "@clerk/nextjs"
+import { SignedIn, UserButton } from "@clerk/clerk-react";
+import { SignedOut, SignInButton, useUser } from "@clerk/nextjs"
 
 
 function Header() {
@@ -12,7 +13,19 @@ function Header() {
      {user && (
         <h1>{user?.firstName}{',s'} Space</h1>
      )}
+    
+    <div>
+        <SignedOut>
+            <SignInButton />
+        </SignedOut>
+
+        <SignedIn>
+            <UserButton />
+        </SignedIn>
     </div>
+    </div>
+
+
   )
 }
 
